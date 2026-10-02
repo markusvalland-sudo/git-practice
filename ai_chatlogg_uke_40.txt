@@ -1,0 +1,61 @@
+AI-chatlogg – INF201 uke 40 (sammendrag)
+Verktøy: Claude (Anthropic)
+Periode: 30. september – 2. oktober 2026
+
+Hvordan jeg brukte AI
+Jeg brukte Claude som veileder mens jeg gjorde oppgavene selv i terminalen, VS Code
+og på github.com. Jeg sendte skjermbilder av terminalen, koden og VS Code og ba om
+forklaringer, neste steg og hjelp når jeg stod fast. Til oppgave 2 fikk jeg vist
+kode for de enkelte stegene, som jeg deretter skrev inn, kjørte og testet selv.
+
+Spørsmål jeg stilte (i hovedtrekk)
+Oppsett
+- Hvordan bør jeg gå fram med oppgavene?
+- Hva gjør jeg etter at Homebrew er installert? (Jeg hadde limt inn kommandoene
+  flere ganger og stod fast i en uferdig kommandolinje med \ på slutten.)
+- Hvordan setter jeg navn og e-post med git config, og hvordan endrer jeg e-posten
+  i terminalen? (E-posten må være lik primær-e-posten på GitHub.)
+- Hvorfor kjørte skriptet med feil Python (/usr/bin/python3, 3.9)? Byttet til
+  Anaconda (3.13) med "Python: Select Interpreter".
+- Hvorfor feilet pip install mot .venv? (Mellomrommet i mappenavnet "INF 201".)
+
+Oppgave 1
+- Hva er neste steg etter git config? (Logge inn med GitHub i VS Code, lage repoet
+  git-practice med README og Python-.gitignore, klone det.)
+- Hvor finner jeg "Sync Changes"?
+- Hva gjør jeg når COMMIT_EDITMSG åpner seg? (Jeg klikket Commit uten melding.)
+- Er hello.py pushet? (Sjekket sky-ikonet i Source Control Graph og github.com.)
+
+Oppgave 2
+- Er det disse filene (config.yml, sensors.xlsx, calibrations.csv) jeg skal bruke,
+  og hvordan legger jeg dem i samme mappe som skriptet?
+- Hvordan leser jeg config.yml med yaml.safe_load?
+- Hvordan leser jeg Excel- og CSV-filen med pandas og kobler dem med pd.merge
+  på sensor_id?
+- Hvordan filtrerer jeg radene der days_since_calibration er større enn grensen?
+  (Prøvde selv først, men stod fast.)
+- Hvordan skriver jeg resultatet til JSON med to_dict(orient="records") og
+  json.dump(..., indent=2)?
+- Hvorfor vises ikke tabellen etter at jeg fjernet print-linjene?
+- Hvor finner jeg "Changes" i Source Control? (Endte med git add, git commit og
+  git push i terminalen.)
+
+Viktige valg og ting jeg lærte
+- Arbeidsflyten i git: clone -> stage -> commit -> push. Commit-meldingen skrives
+  før man klikker Commit.
+- Git-e-posten må stemme med GitHub-kontoen, ellers blir ikke commitene knyttet
+  til meg.
+- VS Code må bruke riktig Python-tolk, ellers finner den ikke pakkene som er
+  installert i Anaconda.
+- Filnavnet til output hentes fra config.yml og skrives ikke rett inn i koden.
+- Boolsk filtrering i pandas skjer i to deler: først en True/False-serie, så
+  plukkes radene med True ut.
+- print-linjene var bare for å teste hvert steg underveis. Det oppgaven krever er
+  JSON-filen.
+- Å teste ett steg om gangen med print gjør feil lettere å finne.
+
+Kontroll
+Jeg sjekket at calibration_alerts.json inneholder nøyaktig to sensorer: S-102
+(Room 108, Dr. Chen, 210 dager) og S-103 (Room 312, Dr. Aris, 195 dager).
+S-101 (120 dager) er under grensen på 180 dager og er ikke med. Jeg sjekket også
+på github.com at alle filene ligger i repoet.
